@@ -94,6 +94,7 @@
   .text-of-sub-container-one {
     height: auto;
     width: 90%;
+    line-height: 1.5;
   }
   .sub-container-two {
     width: 45%;
@@ -133,10 +134,13 @@
   .text-of-sub-container-one {
     width: 95%;
   }
+  .sub-container-two {
+    width: 40%;
+  }
 }
 @media screen and (max-width: 390px) {
   .text-of-sub-container-one {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 @media screen and (max-width: 375px) {
