@@ -1,0 +1,58 @@
+.modal-content {
+    border: 2px solid var(--detail);
+    background-color: var(--primary);
+  }
+  
+  .modal-title {
+    display: flex;
+    color: var(--detail);
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  
+  .mat-form-field-holder {
+    display: flex;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .form-field-content {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .input-text-color {
+    color: var(--detail) !important;
+  }
+  
+  .form-buttons {
+    width: 100%;
+    display: flex;
+  }
+  
+  .login-button {
+    width: 50%;
+    margin: 5px auto;
+    padding: 5px;
+    margin-bottom: 30px;
+  
+    color: var(--detail);
+    border: 2px solid var(--detail);
+    border-radius: 5px;
+    background-color: transparent;
+  }
+  
+  .register-button {
+    width: 50%;
+    margin: 5px auto;
+    padding: 5px;
+
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    background-color: var(--detail);
+  }
+  

@@ -1,0 +1,83 @@
+.contact-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #a8a29e, #4b5563);
+
+  .contact-me-text {
+    color: var(--detail);
+  }
+
+  .contact-form {
+    border: 1px solid var(--detail);
+    border-radius: 10px;
+    padding: 2.25rem;
+  }
+
+  .input-group {
+    font-size: 0.75rem;
+    margin: 1.25rem;
+    position: relative;
+    color: var(--primary);
+
+    .input {
+      all: unset;
+      color: var(--detail);
+      padding: 1rem;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      width: 12.25rem;
+      &:last-child {
+        width: auto;
+      }
+
+      &:is(textarea) {
+        white-space: nowrap;
+      }
+
+      &:focus {
+        border: 2px solid var(--detail);
+      }
+      &:is(:focus, :valid) ~ label {
+        transform: translateY(-190%) scale(0.7);
+        background-color: transparent;
+        padding-inline: -0.6rem;
+        color: var(--detail);
+      }
+      &:last-child {
+        width: 85%;
+      }
+    }
+
+    .label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: var(--primary);
+      pointer-events: none;
+      transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+  .send-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .send-btn {
+      color: var(--detail);
+      background-color: transparent;
+      border: 1px solid var(--detail);
+      border-radius: 10px;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: var(--detail);
+        background-color: var(--secondary);
+      }
+    }
+  }
+}
