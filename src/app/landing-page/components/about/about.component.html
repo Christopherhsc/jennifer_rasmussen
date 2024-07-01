@@ -1,42 +1,97 @@
 <div
-  class="about-background"
+  class="flex h-screen bg-gradient-to-l from-gray-400 to-gray-800"
   id="about"
 >
-  <div class="about-container">
-    <div class="sub-container-one">
-      <h3 class="text-of-sub-container-one">
-        Mit navn er Jennifer og jeg brænder for, at hjælpe mennesker til en
-        sundere hverdag. Jeg er uddannet Personlig Træner og Kostvejleder og har
-        mange års erfaring inde for feltet. Jeg er bosat i København og jeg
-        kører mine personlige træninger i Sporting Health Club på Borups Allé.
-        Jeg har en dybdegående forståelse for kroppens anatomi og forstår
-        derfor, at sundhed og træning er individuelt. Dermed lægges der hos mig
-        stor fokus på, at vi finder en løsning, som specifikt passer til dig.
-        Både kost og træning skal tilpasses dit liv, og ikke omvendt. Derfor er
-        det vigtigt, at du vælger den helt den rigtige personlige træner for
-        DIG. <br />
+  <!-- parent container-->
+  <div
+    class="about-container m-auto flex w-full flex-col items-center lg:flex-row"
+  >
+    <!-- first container -->
+    <div class="max-h-screen w-full p-2 text-white md:p-4 lg:w-1/2">
+      <div class="m-auto xxs:mb-8 md:mb-2 md:w-3/5">
+        <p
+          class="glassmorphism m-auto hidden p-2 text-left text-sm xs:flex sm:p-4 md:text-xl"
+        >
+          Mit navn er Jennifer og jeg brænder for, at hjælpe mennesker til en
+          sundere hverdag. Jeg er uddannet Personlig Træner og Kostvejleder og
+          har mange års erfaring inde for feltet. Jeg er bosat i København og
+          jeg kører mine personlige træninger i Sporting Health Club på Borups
+          Allé. Jeg har en dybdegående forståelse for kroppens anatomi og
+          forstår derfor, at sundhed og træning er individuelt. Dermed lægges
+          der hos mig stor fokus på, at vi finder en løsning, som specifikt
+          passer til dig. Både kost og træning skal tilpasses dit liv, og ikke
+          omvendt. Derfor er det vigtigt, at du vælger den helt den rigtige
+          personlige træner for DIG. <br />
 
-        Som følge deraf vil der hos mig, altid foregå en uforpligtende
-        indledende samtale inden dit forløb. Mit fokus er dine mål, udfordringer
-        og forventninger til dit forløb. Det er essentielt for mig, at jeg
-        forstår hvem du er som person samt kender din hverdag og personlige
-        behov, så jeg på den måde kan sammensætte et forløb unikt til dig.
-      </h3>
+          Som følge deraf vil der hos mig, altid foregå en uforpligtende
+          indledende samtale inden dit forløb. Mit fokus er dine mål,
+          udfordringer og forventninger til dit forløb. Det er essentielt for
+          mig, at jeg forstår hvem du er som person samt kender din hverdag og
+          personlige behov, så jeg på den måde kan sammensætte et forløb unikt
+          til dig.
+        </p>
+        <p
+          class="glassmorphism m-auto flex p-2 text-left text-sm xs:hidden sm:p-4 md:text-xl"
+        >
+          Mit navn er Jennifer og jeg brænder for, at hjælpe mennesker til en
+          sundere hverdag. Jeg er uddannet Personlig Træner og Kostvejleder og
+          har mange års erfaring inde for feltet. Jeg er bosat i København og
+          jeg kører mine personlige træninger i Sporting Health Club på Borups
+          Allé. Jeg har en dybdegående forståelse for kroppens anatomi og
+          forstår derfor, at sundhed og træning er individuelt. Dermed lægges
+          der hos mig stor fokus på, at vi finder en løsning, som specifikt
+          passer til dig. Både kost og træning skal tilpasses dit liv, og ikke
+          omvendt.
+        </p>
+      </div>
     </div>
-    <div class="sub-container-two">
-      <div class="slider">
-        <div class="slider-content">
-          <div class="slide">
-            <img src="/assets/about1.jpeg" alt="Image 1" />
+
+    <!-- second container -->
+    <div class="second-container relative flex w-11/12 justify-center md:w-1/2">
+      <div
+        class="glassmorphism flex flex-row justify-center overflow-hidden sm:flex-col lg:w-10/12 xl:w-3/5"
+      >
+        <div
+          class="slider-content flex transition-transform duration-1000 ease-in-out"
+          [ngStyle]="{ transform: 'translateX(-' + currentSlide * 100 + '%)' }"
+        >
+          <div class="slide w-full flex-none" *ngFor="let slide of slides">
+            <img [src]="slide" alt="Image" class="h-full w-full" />
           </div>
-          <div class="slide">
-            <img src="/assets/about2.jpeg" alt="Image 2" />
-          </div>
-          <div class="slide">
-            <img src="/assets/about3.jpeg" alt="Image 3" />
-          </div>
-          <div class="slide">
-            <img src="/assets/about1.jpeg" alt="Image 3" />
+        </div>
+        <button
+          class="absolute left-0 top-1/2 -translate-y-1/2 transform bg-gray-800 bg-opacity-50 p-2 text-white"
+          (click)="prevSlide(true)"
+        >
+          &#10094;
+        </button>
+        <button
+          class="absolute right-0 top-1/2 -translate-y-1/2 transform bg-gray-800 bg-opacity-50 p-2 text-white"
+          (click)="nextSlide(true)"
+        >
+          &#10095;
+        </button>
+        <div
+          class="glassmorphism-rounded-none absolute bottom-0 left-0 right-0 flex justify-center gap-12"
+        >
+          <div *ngFor="let slide of slides; let i = index" class="mx-2">
+            <input
+              type="radio"
+              [id]="'radio-' + i"
+              name="slider"
+              [checked]="i === currentSlide"
+              (click)="goToSlide(i)"
+              class="hidden"
+            />
+            <label [for]="'radio-' + i" class="cursor-pointer">
+              <span
+                [class]="
+                  i === currentSlide
+                    ? 'h-4 w-4 rounded-full bg-white'
+                    : 'h-4 w-4 rounded-full bg-gray-400'
+                "
+              ></span>
+            </label>
           </div>
         </div>
       </div>

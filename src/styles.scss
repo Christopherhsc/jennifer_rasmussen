@@ -55,72 +55,38 @@ body {
   --transparent: rgba(255, 255, 255, 0.1);
   /* Add more color variables as needed */
 }
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 html {
   scroll-behavior: smooth;
 }
 
-.mdc-text-field--outlined:not(.mdc-text-field--disabled)
-  .mdc-notched-outline__leading,
-.mdc-text-field--outlined:not(.mdc-text-field--disabled)
-  .mdc-notched-outline__notch,
-.mdc-text-field--outlined:not(.mdc-text-field--disabled)
-  .mdc-notched-outline__trailing {
-  border-color: white !important;
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.326);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  text-shadow: rgba(0, 0, 0, 0.161) 1px 0 10px;
 }
 
-.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(
-    .mdc-text-field--focused
-  ):hover
-  .mdc-notched-outline
-  .mdc-notched-outline__leading,
-.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(
-    .mdc-text-field--focused
-  ):hover
-  .mdc-notched-outline
-  .mdc-notched-outline__notch,
-.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(
-    .mdc-text-field--focused
-  ):hover
-  .mdc-notched-outline
-  .mdc-notched-outline__trailing {
-  border-color: white !important;
+.glassmorphism-rounded-none {
+  background: rgba(0, 0, 0, 0.409);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  text-shadow: rgba(0, 0, 0, 0.37) 1px 0 10px;
+  font-weight: 500;
 }
 
-.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field
-  .mdc-notched-outline__notch {
-  border-left: none;
+.icon-button {
+  @apply flex h-10 w-10 transform cursor-pointer items-center justify-center rounded-full bg-white text-2xl shadow-lg transition-all duration-200 ease-in-out hover:scale-105;
 }
 
-.mat-mdc-text-field-wrapper.mdc-text-field--outlined
-  .mdc-notched-outline--upgraded
-  .mdc-floating-label--float-above {
-  color: white !important;
-}
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
-  color: white !important;
+.tooltip {
+  @apply pointer-events-none absolute top-0 rounded bg-white p-2 text-sm text-white opacity-0 shadow-lg transition-all duration-300 ease-in-out;
 }
 
-.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label {
-  color: #f44336 !important;
-}
-
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
-  color: white !important;
-}
-
-.mat-form-field-infix .mat-input-element {
-  caret-color: white !important;
-}
-
-::ng-deep .mat-form-field-label {
-  color: #000 !important;
+.nav-button {
+  @apply rounded-md px-4 py-2 text-xl font-medium transition-colors duration-300 hover:cursor-pointer hover:bg-gray-950 hover:bg-opacity-20;
 }

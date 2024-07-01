@@ -1,161 +1,201 @@
 <div
-  class="services-background bg-gradient-to-r from-stone-500 to-stone-700"
+  class="flex h-screen flex-col items-center justify-center bg-gradient-to-b from-[#a8a29e] to-[#4b5563]"
   id="services"
 >
-  <div class="services-content">
-    <div class="services-header">
-      <h1 class="my-services-header">Mine Ydelser</h1>
-    </div>
-    <div class="services-header">
-      <p class="sub-text">Nedenfor er mine ydelser præsenteret.</p>
-    </div>
+  <!-- HEADER-->
+  <div
+    *ngIf="!isPanelExpanded"
+    class="glassmorphism mb-8 flex flex-col p-2 text-center xl:w-1/5"
+  >
+    <p class="text-2xl text-white">Mine Ydelser</p>
+    <p class="text-md">Nedenfor er mine ydelser præsenteret.</p>
+  </div>
 
-    <div class="services-container">
-      <div class="services-left">
-        <div class="services-left-container">
-          <mat-accordion>
-            <mat-expansion-panel class="mat-panel-holder">
-              <mat-expansion-panel-header class="disable_ripple">
-                <mat-panel-title> Personlig træning </mat-panel-title>
-                <mat-panel-description> </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div class="text-format">
-                <p>
-                  En personlig træner er det rigtige valg for dig, hvis du
-                  ønsker at udfordre dig selv, blive klogere på din egen krop
-                  samt opnå resultater, du måske ikke har kunne opnå før. Jeg
-                  mener, at god kemi og et stærkt samarbejde er essentielt, når
-                  det omhandler personlig træning. På baggrund af det, vil jeg
-                  altid tage en uformel og uforpligtende samtale, hvor vi sammen
-                  snakker om dine forventninger og udarbejder dine målsætninger.
-                  Et forløb hos mig bliver skræddersyet til dine hverdagsmønstre
-                  – et forløb skal tilpasses dig, så det er realistisk og
-                  motiverende. Jeg arbejder med personlig træning i København,
-                  med fokus på styrketræning. Jeg mener nemlig, at styrketræning
-                  er et eminent værktøj til et godt vægttab og en sund krop. Jeg
-                  vil med min ekspertise indenfor anatomi, fysiologi og
-                  styrketræning, præsentere dig for en masse forskellige øvelser
-                  samt give dig nogle gode redskaber, så du selv har viden samt
-                  mulighed for, at fortsætte din træning og selv sammensætte
-                  dem, når du engang er på egen hånd. Personlig træning hos mig
-                  indebærer, at vi mødes nogle gange ugentligt eller månedligt
-                  alt efter hvilket forløb du vælger. Jeg vil give dig
-                  kostvejledning og træningsprogrammering, konkrete redskaber
-                  til selvhjælp. Derudover vil jeg give dig ubegrænset
-                  telefonisk support samt ugentlige check-ins omhandlende din
-                  vægt, mål, livsstil mm.
-                  <br />
-                  Alle PT-forløb indeholder:
-                </p>
+  <!-- MAT ACCORDIONS -->
+  <div
+    class="flex w-full flex-col items-center justify-center sm:w-8/12 md:h-2/3 md:w-3/4 lg:w-2/4 xl:w-2/5"
+  >
+    <mat-accordion>
+      <mat-expansion-panel
+        (opened)="onPanelExpanded(true, 0)"
+        (closed)="onPanelExpanded(false, 0)"
+      >
+        <mat-expansion-panel-header class="disable_ripple m-0 p-0">
+          <mat-panel-title> Personlig træning </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="pt-3 text-xs sm:text-lg">
+          En personlig træner er det rigtige valg for dig, hvis du ønsker at
+          udfordre dig selv, blive klogere på din egen krop samt opnå
+          resultater, du måske ikke har kunne opnå før. Jeg mener, at god kemi
+          og et stærkt samarbejde er essentielt, når det omhandler personlig
+          træning. På baggrund af det, vil jeg altid tage en uformel og
+          uforpligtende samtale, hvor vi sammen snakker om dine forventninger og
+          udarbejder dine målsætninger. Et forløb hos mig bliver skræddersyet
+          til dine hverdagsmønstre – et forløb skal tilpasses dig, så det er
+          realistisk og motiverende. Jeg arbejder med personlig træning i
+          København, med fokus på styrketræning. Jeg mener nemlig, at
+          styrketræning er et eminent værktøj til et godt vægttab og en sund
+          krop. Jeg vil med min ekspertise indenfor anatomi, fysiologi og
+          styrketræning, præsentere dig for en masse forskellige øvelser samt
+          give dig nogle gode redskaber, så du selv har viden samt mulighed for,
+          at fortsætte din træning og selv sammensætte dem, når du engang er på
+          egen hånd. Personlig træning hos mig indebærer, at vi mødes nogle
+          gange ugentligt eller månedligt alt efter hvilket forløb du vælger.
+          Jeg vil give dig kostvejledning og træningsprogrammering, konkrete
+          redskaber til selvhjælp. Derudover vil jeg give dig ubegrænset
+          telefonisk support samt ugentlige check-ins omhandlende din vægt, mål,
+          livsstil mm.
+          <br />
+          Alle PT-forløb indeholder:
 
-                <ul>
-                  <li>En indledende og uforpligtende samtale</li>
-                  <li>
-                    Personlig træning 1,2 eller 3x gange ugentligt (også
-                    mulighed for at holde det på hver 2. uge)
-                  </li>
-                  <li>Kostvejledning</li>
-                  <li>Træningsprogrammer samt træningsvejledning</li>
-                  <li>Support via besked/mail/telefon</li>
-                </ul>
-                <div class="contact-me-link">
-                  <a (click)="scrollTo('contact')"
-                    >Kontakt mig for mere information</a
-                  >
-                </div>
-              </div>
-            </mat-expansion-panel>
-
-            <mat-expansion-panel class="mat-panel-holder">
-              <mat-expansion-panel-header class="disable_ripple">
-                <mat-panel-title> Online personlig træning </mat-panel-title>
-                <mat-panel-description> </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div class="text-format">
-                <p>
-                  Jeg tilbyder også online personlig træning. Et sådan forløb er
-                  præcis det samme som et fysisk forløb, dog uden de fysiske
-                  træningstimer. Træningsprogrammering, kostvejledning,
-                  check-ins samt 1-1 kontakten er præcis den samme som et fysisk
-                  forløb hos mig. Der er i dette forløb i højere grad
-                  kommunikation telefonisk, da du netop ikke mødes med mig
-                  fysisk hver uge. Der er i online personlig træning stor fokus
-                  på, at gå i dybden med din kost, træning og livsstil. Udover
-                  de basale ting i et forløb, vil der være rig mulighed for, at
-                  snakke om de forskellige problemstillinger du møder og finde
-                  frem til en løsning. Det er min målsætning som din personlig
-                  træner, at gøre dig komfortabel og tryg i et fitnesscenter men
-                  også omkring din kost og livsstil. Et online personlig
-                  træningsforløb er perfekt til dig, som ønsker personlig
-                  træning online (og ikke bare en online coach), men som ikke
-                  har mulighed for et fysisk PT-forløb. Grundet de manglende
-                  fysiske træningstimer, skal du være opsat på at vedligeholde
-                  en god kommunikation, så du kan få det bedste ud af dit
-                  forløb. Endvidere er online personlig træning den billigste
-                  service jeg tilbyder, så tøv ikke med at udfylde kontakt
-                  formularen og kom i kontakt med mig.
-                </p>
-                <div class="contact-me-link">
-                  <a (click)="scrollTo('contact')"
-                    >Kontakt mig for mere information</a
-                  >
-                </div>
-              </div>
-            </mat-expansion-panel>
-
-            <mat-expansion-panel class="mat-panel-holder">
-              <mat-expansion-panel-header class="disable_ripple">
-                <mat-panel-title> Kostvejledning </mat-panel-title>
-                <mat-panel-description> </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div class="text-format">
-                <p>
-                  Jeg arbejder som personlig træner og kostvejleder i København.
-                  Som kostvejleder brænder jeg for, at hjælpe mennesker til at
-                  opnå en varig livsstilsændring samt dét at føle sig bedre
-                  tilpas i sin krop. Det er ofte svært at ændre sin livsstil på
-                  egen hånd og derfor kan jeg hjælpe dig med nogle gode
-                  værktøjer, nyttig viden samt hjælp, sparring og støtte hele
-                  vejen gennem dit forløb OG samtaler efter dit forløb, såfremt
-                  behovet er der. Jeg kan hjælpe dig med, at lægge en effektiv
-                  og gennemtænkt plan, som vil hjælpe dig på rette kurs mod dit
-                  mål. Jeg lægger stor vægt på, at intet er forbudt hos mig og
-                  vi arbejder med madvaner og ikke madvarer. Intet kan
-                  enkeltstående være sundt eller usundt. En tilgang med en stram
-                  kostplan, restriktivitet og uinspirerende træninger vil ikke
-                  være holdbart. I et forløb hos mig, finder vi en tilgang, som
-                  passer til hvem du er og hvordan du lever dit liv. En holdbar
-                  tilgang, som du kan se dig selv fortsætte med.
-                </p>
-                <div class="contact-me-link">
-                  <a class="contact-me-text" (click)="scrollTo('contact')"
-                    >Kontakt mig for mere information</a
-                  >
-                </div>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
+          <ul>
+            <li>En indledende og uforpligtende samtale</li>
+            <li>
+              Personlig træning 1,2 eller 3x gange ugentligt (også mulighed for
+              at holde det på hver 2. uge)
+            </li>
+            <li>Kostvejledning</li>
+            <li>Træningsprogrammer samt træningsvejledning</li>
+            <li>Support via besked/mail/telefon</li>
+          </ul>
+          <button
+            class="nav-button glassmorphism text-text-xs mt-4 p-2"
+            (click)="scrollTo('contact')"
+          >
+            Kontakt mig for mere information
+          </button>
         </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel
+        (opened)="onPanelExpanded(true, 1)"
+        (closed)="onPanelExpanded(false, 1)"
+      >
+        <mat-expansion-panel-header class="disable_ripple">
+          <mat-panel-title> Online personlig træning </mat-panel-title>
+          <mat-panel-description> </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="pt-3 text-xs sm:text-lg">
+          Jeg tilbyder også online personlig træning. Et sådan forløb er præcis
+          det samme som et fysisk forløb, dog uden de fysiske træningstimer.
+          Træningsprogrammering, kostvejledning, check-ins samt 1-1 kontakten er
+          præcis den samme som et fysisk forløb hos mig. Der er i dette forløb i
+          højere grad kommunikation telefonisk, da du netop ikke mødes med mig
+          fysisk hver uge. Der er i online personlig træning stor fokus på, at
+          gå i dybden med din kost, træning og livsstil. Udover de basale ting i
+          et forløb, vil der være rig mulighed for, at snakke om de forskellige
+          problemstillinger du møder og finde frem til en løsning. Det er min
+          målsætning som din personlig træner, at gøre dig komfortabel og tryg i
+          et fitnesscenter men også omkring din kost og livsstil. Et online
+          personlig træningsforløb er perfekt til dig, som ønsker personlig
+          træning online (og ikke bare en online coach), men som ikke har
+          mulighed for et fysisk PT-forløb. Grundet de manglende fysiske
+          træningstimer, skal du være opsat på at vedligeholde en god
+          kommunikation, så du kan få det bedste ud af dit forløb. Endvidere er
+          online personlig træning den billigste service jeg tilbyder, så tøv
+          ikke med at udfylde kontakt formularen og kom i kontakt med mig.
+          <button
+            class="nav-button glassmorphism text-text-xs mt-4 p-2"
+            (click)="scrollTo('contact')"
+          >
+            Kontakt mig for mere information
+          </button>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel
+        (opened)="onPanelExpanded(true, 2)"
+        (closed)="onPanelExpanded(false, 2)"
+      >
+        <mat-expansion-panel-header class="disable_ripple">
+          <mat-panel-title> Kostvejledning </mat-panel-title>
+          <mat-panel-description> </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="pt-3 text-xs sm:text-lg">
+          <p>
+            Jeg arbejder som personlig træner og kostvejleder i København. Som
+            kostvejleder brænder jeg for, at hjælpe mennesker til at opnå en
+            varig livsstilsændring samt dét at føle sig bedre tilpas i sin krop.
+            Det er ofte svært at ændre sin livsstil på egen hånd og derfor kan
+            jeg hjælpe dig med nogle gode værktøjer, nyttig viden samt hjælp,
+            sparring og støtte hele vejen gennem dit forløb OG samtaler efter
+            dit forløb, såfremt behovet er der. Jeg kan hjælpe dig med, at lægge
+            en effektiv og gennemtænkt plan, som vil hjælpe dig på rette kurs
+            mod dit mål. Jeg lægger stor vægt på, at intet er forbudt hos mig og
+            vi arbejder med madvaner og ikke madvarer. Intet kan enkeltstående
+            være sundt eller usundt. En tilgang med en stram kostplan,
+            restriktivitet og uinspirerende træninger vil ikke være holdbart. I
+            et forløb hos mig, finder vi en tilgang, som passer til hvem du er
+            og hvordan du lever dit liv. En holdbar tilgang, som du kan se dig
+            selv fortsætte med.
+          </p>
+          <button
+            class="nav-button glassmorphism text-text-xs mt-4 p-2"
+            (click)="scrollTo('contact')"
+          >
+            Kontakt mig for mere information
+          </button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <button
+      *ngIf="isPanelExpanded"
+      (click)="closeAllPanels()"
+      class="nav-button glassmorphism mt-4 px-4 py-2 text-white"
+    >
+      Se Anmeldelser
+    </button>
+  </div>
+
+  <div
+    class="glassmorphism relative my-12 flex w-10/12 flex-col items-center overflow-hidden text-white"
+    [ngClass]="{ hidden: isPanelExpanded, 'sm:block': !isPanelExpanded }"
+  >
+    <div
+      class="slider-content flex transition-transform duration-1000 ease-in-out"
+      [ngStyle]="{
+        transform: 'translateX(-' + currentReviewIndex * 100 + '%)',
+      }"
+    >
+      <div class="slide w-fit flex-none" *ngFor="let review of reviews">
+        <h3 class="text-white">{{ review.name }}</h3>
+        <p class="mt-2 w-full px-12 pb-6">{{ review.text }}</p>
       </div>
-
-      <div class="services-right">
-        <div class="services-right-container">
-          <div class="services-right-header">
-            <div class="my-reviews-container">
-              <h3 class="review-name text-format">{{ currentReview.name }}</h3>
-              <p class="review-text text-format">{{ currentReview.text }}</p>
-            </div>
-          </div>
-
-          <div class="arrow-button-container">
-            <button class="arrow arrow-left" (click)="previousReview()">
-              &#10094;
-            </button>
-            <button class="arrow arrow-right" (click)="nextReview()">
-              &#10095;
-            </button>
-          </div>
-        </div>
+    </div>
+    <button
+      class="absolute left-0 top-1/2 -translate-y-1/2 transform bg-gray-800 bg-opacity-50 p-2 text-white"
+      (click)="prevReview(true)"
+    >
+      &#10094;
+    </button>
+    <button
+      class="absolute right-0 top-1/2 -translate-y-1/2 transform bg-gray-800 bg-opacity-50 p-2 text-white"
+      (click)="nextReview(true)"
+    >
+      &#10095;
+    </button>
+    <div
+      class="glassmorphism-rounded-none absolute bottom-0 left-0 right-0 flex justify-center"
+    >
+      <div *ngFor="let review of reviews; let i = index" class="mx-2">
+        <input
+          type="radio"
+          [id]="'radio-review-' + i"
+          name="review-slider"
+          [checked]="i === currentReviewIndex"
+          (click)="goToReview(i)"
+          class="hidden"
+        />
+        <label [for]="'radio-review-' + i" class="cursor-pointer">
+          <span
+            [class]="
+              i === currentReviewIndex
+                ? 'h-4 w-4 rounded-full bg-white'
+                : 'h-4 w-4 rounded-full bg-gray-400'
+            "
+          ></span>
+        </label>
       </div>
     </div>
   </div>

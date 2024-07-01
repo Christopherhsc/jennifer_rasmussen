@@ -1,54 +1,14 @@
-.about-background {
-  background: linear-gradient(to left, #a8a29e, #4b5563);
-  height: 100vh;
-  display: flex;
-}
-
-.about-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 100%;
-  height: 60vh;
-}
-
-.sub-container-one,
-.sub-container-two {
-  width: 50%;
-  max-height: 100vh;
-}
-
-.sub-container-one {
-  color: var(--detail);
-}
-
-.text-of-sub-container-one {
-  font-size: 16px;
-  line-height: 2;
-  text-align: left;
-  width: 70%;
-  margin: auto;
-}
-
-.slider {
-  width: 70%;
-  overflow: hidden;
-  box-shadow: 19px 19px 25px 0px rgba(0, 0, 0, 0.75);
-  border: 1px solid var(--detail);
+.second-container {
+  max-height: 70vh;
+  position: relative; /* Ensure buttons and indicators are positioned correctly */
 }
 
 .slider-content {
   display: flex;
-  width: 400%;
-  animation: slide 15s infinite;
 }
 
 .slide {
-  flex: 1;
-  width: 100%;
-  max-height: 90vh;
-  transition: transform 1s;
+  flex: 0 0 100%;
 }
 
 .slide img {
@@ -57,99 +17,18 @@
   object-fit: cover;
 }
 
-@keyframes slide {
-  0% {
-    transform: translate(0%);
-  }
-  33.33% {
-    transform: translate(-25%);
-  }
-  66.66% {
-    transform: translate(-50%);
-  }
-  99.99%,
-  100% {
-    transform: translate(-75%);
-  }
+input[type="radio"] {
+  display: none;
 }
 
-@media screen and (max-width: 1024px) {
-  .text-of-sub-container-one {
-    font-size: 14px;
-    height: 100vh;
-  }
-  .slider-display {
-    display: none;
-  }
+label span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: gray;
 }
 
-@media screen and (max-width: 912px) {
-  .about-container {
-    flex-direction: column;
-  }
-  .sub-container-one {
-    width: 92%;
-    padding-bottom: 5%;
-  }
-  .text-of-sub-container-one {
-    height: auto;
-    width: 90%;
-    line-height: 1.5;
-  }
-  .sub-container-two {
-    width: 45%;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 768px) {
-
-  .text-of-sub-container-one {
-    font-size: 13px;
-    padding-bottom: 2%;
-    width: 95%;
-  }
-}
-
-@media screen and (max-width: 540px) {
-
-
-  .text-of-sub-container-one {
-    font-size: 10px;
-    padding-bottom: 1%;
-  }
-
-
-}
-
-@media screen and (max-width: 430px) {
-  .text-of-sub-container-one {
-    font-size: 13px;
-  }
-  .sub-container-one,
-  .sub-container-two {
-    width: 100%;
-  }
-  .text-of-sub-container-one {
-    width: 95%;
-  }
-  .sub-container-two {
-    width: 40%;
-  }
-}
-@media screen and (max-width: 390px) {
-  .text-of-sub-container-one {
-    font-size: 11px;
-  }
-}
-@media screen and (max-width: 375px) {
-  .text-of-sub-container-one {
-    font-size: 10px;
-  }
-}
-@media screen and (max-width: 375px) {
-  .text-of-sub-container-one {
-    font-size: 9px;
-  }
+label span.w-4.h-4.bg-white {
+  background-color: white;
 }

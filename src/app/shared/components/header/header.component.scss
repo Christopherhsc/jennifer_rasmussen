@@ -7,71 +7,35 @@
   padding: 15px;
   color: var(--detail);
   width: 100%;
-  z-index: 10; 
-
-
-  box-shadow: 1px 10px 24px 6px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 10px 24px 6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 10px 24px 6px rgba(0, 0, 0, 0.75);
+  z-index: 10;
 }
 
-.center-button {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.glassmorphism-navbar {
+  background: rgba(0, 0, 0, 0.409);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.73);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.56);
+  text-shadow: rgba(0, 0, 0, 0.37) 1px 0 10px;
+  font-weight: 500;
 }
 
-.brand-logo {
-  text-decoration: none;
-  color: var(--detail);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.right-buttons {
-  display: flex;
-}
-
-.nav-button {
-  margin-right: 50px;
-  text-decoration: none;
-  color: var(--detail);
-  border: none;
-  border-bottom: 1px solid var(--detail);
-  padding: 2px 5px;
-  cursor: pointer;
-}
-
-.login{
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.dropdown-menu .dropdown-content {
-  display: none; 
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--primary);
-  flex-direction: column;
-}
-
-/* Dropdown Menu Styling */
 .dropdown-menu .dropdown-content {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: var(--primary);
-  z-index: 1;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #a8a29e, #4b5563);
+  background: rgba(0, 0, 0, 0.842);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.73);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.56);
+  text-shadow: rgba(0, 0, 0, 0.37) 1px 0 10px;
   padding-top: 20px; /* Added padding at the top */
 }
 
@@ -113,15 +77,17 @@
 }
 
 .dropdown-menu .dropdown-content .login {
-  background-color: var(--accent-color); 
-  color: white; 
+  background-color: var(--accent-color);
+  color: white;
   padding: 15px 20px;
-  margin-top: 15px; 
-  font-weight: bold; 
-  border-radius: 5px; 
+  margin-top: 15px;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 /* Media Query for Smaller Screens */
 @media screen and (max-width: 1050px) {
-  /* ... existing styles ... */
+  .navbar {
+    padding: 10px;
+  }
 }

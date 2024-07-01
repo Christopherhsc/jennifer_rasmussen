@@ -1,16 +1,16 @@
-<nav class="navbar bg-gradient-to-r from-stone-500 to-stone-700 h-14">
+<nav class="navbar glassmorphism-navbar h-14">
+  <div class="center-button">
+    <a
+      (click)="scrollTo('home')"
+      class="hover:cursor-pointer text-2xl hover:bg-gray-950 hover:bg-opacity-20 p-2 rounded-md transition-colors duration-300"
+    >
+      Jennifer Rasmussen
+    </a>
+  </div>
   <div class="left-buttons" *ngIf="!isSmallScreen">
     <a (click)="scrollTo('about')" class="nav-button">Om mig</a>
     <a (click)="scrollTo('services')" class="nav-button">Ydelser</a>
     <a (click)="scrollTo('contact')" class="nav-button">Kontakt mig</a>
-  </div>
-  <div class="center-button">
-    <a (click)="scrollTo('home')" class="brand-logo"
-      >Jennifer Rasmussen</a
-    >
-  </div>
-  <div class="right-buttons">
-    <button class="nav-button login" (click)="openLoginModal()">Login</button>
   </div>
   <div
     class="dropdown-menu"
@@ -19,11 +19,10 @@
   >
     <button class="dropbtn" (click)="toggleDropdown()">Menu</button>
     <div class="dropdown-content">
-      <button class="nav-button login" (click)="openLoginModal()">Login</button>
-      <a (click)="scrollTo('home')">Hjem</a>
-      <a (click)="scrollTo('om')">Om mig</a>
-      <a (click)="scrollTo('services')">Ydelser</a>
-      <a (click)="scrollTo('contact')">Kontakt mig</a>
+      <a (click)="scrollTo('home')" class="">Hjem</a>
+      <a (click)="scrollTo('om')" class="">Om mig</a>
+      <a (click)="scrollTo('services')" class="">Ydelser</a>
+      <a (click)="scrollTo('contact')" class="">Kontakt mig</a>
     </div>
   </div>
 </nav>
