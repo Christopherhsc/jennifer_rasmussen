@@ -1,3 +1,5 @@
+// services.component.ts
+
 import {
   Component,
   OnInit,
@@ -9,6 +11,7 @@ import {
 } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { MatExpansionPanel } from '@angular/material/expansion';
+import { reviews, tabs, panels } from './services.data';
 
 @Component({
   selector: 'app-services',
@@ -26,16 +29,10 @@ export class ServicesComponent implements OnInit, OnDestroy {
   @ViewChild('contact') contactElement: ElementRef;
   @ViewChildren(MatExpansionPanel) panels: QueryList<MatExpansionPanel>;
 
-  reviews = [
-    {
-      name: 'Kristiane: ⭐⭐⭐⭐⭐',
-      text: 'Med hjælp fra Jennifer, har jeg fundet en kærlighed til træning og til mig selv, som jeg aldrig troede jeg ville finde. Jeg kan se og mærke fantastiske resultater, som jeg ikke har kunnet få uden Jennifers hjælp og vejledning. Vægttab, opbygning af muskelmasse, mere energi til hverdagen, et klarere hoved samt en overordnet ro i kroppen er bl.a. nogle af de mange resultater jeg selv har bemærket!',
-    },
-    {
-      name: 'Maria: ⭐⭐⭐⭐⭐',
-      text: 'Jeg var på udkig efter en personlig træner, som var i stand til at forstå mine behov og mål og dermed skabe et ordentligt kost- og træningsprogram - målrettet mig. Det fandt jeg i Jennifer. Efter et rygestop og overgangsalder har det været svært, at fastholde den vægt jeg befandt mig bedst i. Jennifer har formået at være min inspiration og motivationskilde, især de dage hvor det har været hårdt.',
-    },
-  ];
+  // Use imported data
+  reviews = reviews;
+  tabs = tabs;
+  panelContent = panels;
 
   constructor(private viewportScroller: ViewportScroller) {}
 
@@ -50,10 +47,6 @@ export class ServicesComponent implements OnInit, OnDestroy {
     if (this.autoSlideTimeout) {
       clearTimeout(this.autoSlideTimeout);
     }
-  }
-
-  get currentReview() {
-    return this.reviews[this.currentReviewIndex];
   }
 
   scrollTo(sectionId: string = '') {
@@ -117,14 +110,4 @@ export class ServicesComponent implements OnInit, OnDestroy {
     this.isPanelExpanded = false;
   }
 
-  onSwipe(event: any): void {
-    console.log('Swipe event detected:', event);
-    if (event.direction === 2) {
-      // swipe left
-      this.nextReview(true);
-    } else if (event.direction === 4) {
-      // swipe right
-      this.prevReview(true);
-    }
-  }
 }

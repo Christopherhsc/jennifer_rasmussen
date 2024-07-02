@@ -15,8 +15,6 @@ import { SharedModule } from './shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { MyHammerConfig } from './hammer-config';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,12 +31,7 @@ import { MyHammerConfig } from './hammer-config';
     MatExpansionModule,
     BrowserAnimationsModule,
   ],
-  providers: [
-    {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: MyHammerConfig,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

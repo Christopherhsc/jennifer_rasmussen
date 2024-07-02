@@ -3,18 +3,18 @@
 export const reviews = [
   {
     name: 'Kristiane: ⭐⭐⭐⭐⭐',
-    text: 'Med hjælp fra Jennifer, har jeg fundet en kærlighed til træning og til mig selv, som jeg aldrig troede jeg ville finde. Jeg kan se og mærke fantastiske resultater, som jeg ikke har kunnet få uden Jennifers hjælp og vejledning. Vægttab, opbygning af muskelmasse, mere energi til hverdagen, et klarere hoved samt en overordnet ro i kroppen er bl.a. nogle af de mange resultater jeg selv har bemærket! Jennifer er utrolig motiverende, sød og afslappet og så er hun bare enormt dygtig til både at forklare øvelser, men også til at vise hvordan man får allermest ud af sin træning - hun er hele pakken og jeg kan slet ikke anbefale hende nok.',
+    text: 'Med hjælp fra Jennifer, har jeg fundet en kærlighed til træning og til mig selv, som jeg aldrig troede jeg ville finde. Jeg kan se og mærke fantastiske resultater, som jeg ikke har kunnet få uden Jennifers hjælp og vejledning. Vægttab, opbygning af muskelmasse, mere energi til hverdagen, et klarere hoved samt en overordnet ro i kroppen er bl.a. nogle af de mange resultater jeg selv har bemærket!',
   },
   {
     name: 'Maria: ⭐⭐⭐⭐⭐',
-    text: 'Jeg var på udkig efter en personlig træner, som var i stand til at forstå mine behov og mål og dermed skabe et ordentligt kost- og træningsprogram - målrettet mig. Det fandt jeg i Jennifer. Efter et rygestop og overgangsalder har det været svært, at fastholde den vægt jeg befandt mig bedst i. Jennifer har formået at være min inspiration og motivationskilde, især de dage hvor det har været hårdt. Hun er min personlige træner og hun har gjort en meget stor forskel for mig',
+    text: 'Jeg var på udkig efter en personlig træner, som var i stand til at forstå mine behov og mål og dermed skabe et ordentligt kost- og træningsprogram - målrettet mig. Det fandt jeg i Jennifer. Efter et rygestop og overgangsalder har det været svært, at fastholde den vægt jeg befandt mig bedst i. Jennifer har formået at være min inspiration og motivationskilde, især de dage hvor det har været hårdt.',
   },
 ];
 
 export const tabs = [
-  { label: 'Personlig træning 👉🏼' },
-  { label: 'Online personlig træning 👉🏼' },
-  { label: 'Kostvejledning 👉🏼' },
+  { label: 'Personlig træning' },
+  { label: 'Online personlig træning' },
+  { label: 'Kostvejledning' },
 ];
 
 export const panels = [
