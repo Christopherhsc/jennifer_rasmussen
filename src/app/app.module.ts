@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
-
-// modules
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { SharedModule } from './shared/shared.module';
+import {
+  BrowserModule,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatExpansionModule } from '@angular/material/expansion';
-
-// components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './landing-page/components/home/home.component';
 import { AboutComponent } from './landing-page/components/about/about.component';
 import { ServicesComponent } from './landing-page/components/services/services.component';
 import { ContactComponent } from './landing-page/components/contact/contact.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+import { MyHammerConfig } from './hammer-config';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import { ContactComponent } from './landing-page/components/contact/contact.comp
     MatExpansionModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

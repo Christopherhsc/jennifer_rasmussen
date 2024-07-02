@@ -36,11 +36,12 @@ mat-panel-title {
   box-sizing: border-box; /* Ensures padding is included in the width calculation */
 }
 
-.slide h3, .slide p {
+.slide h3,
+.slide p {
   width: 100%; /* Ensures the text elements take full width */
 }
 
-input[type='radio'] {
+input[type="radio"] {
   display: none;
 }
 
@@ -54,4 +55,8 @@ label span {
 
 label span.w-4.h-4.bg-white {
   background-color: white;
+}
+
+.contact-button {
+  @apply rounded-md px-2 py-2 text-sm font-medium transition-colors duration-300 hover:cursor-pointer hover:bg-gray-950 hover:bg-opacity-20;
 }

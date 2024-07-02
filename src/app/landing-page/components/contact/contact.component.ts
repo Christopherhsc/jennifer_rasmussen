@@ -8,4 +8,13 @@ import { Component } from '@angular/core';
 export class ContactComponent {
   currentText: string = 'Kontakt';
   currentIndex: number = 3;
+  textareaHeight: string = '40px'; // initial height
+
+  expandTextarea() {
+    this.textareaHeight = '240px'; // expanded height
+  }
+
+  shrinkTextarea() {
+    this.textareaHeight = '40px'; // initial height
+  }
 }

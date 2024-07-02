@@ -2,6 +2,7 @@
   background: url("/assets/home.jpg") no-repeat;
   background-size: cover;
   background-position: right center; /* Default position */
+  position: relative; /* Added to position children absolutely */
 
   @media (min-width: 250px) {
     /* Extra small screens */
@@ -32,4 +33,49 @@
   border-radius: none;
   border: 1px solid rgba(255, 255, 255, 0.64);
   text-shadow: rgba(0, 0, 0, 0.161) 1px 0 10px;
+}
+
+#home .glassmorphism-no-rounded {
+  position: absolute;
+  bottom: 0; /* Ensures the div is at the bottom */
+  left: 0;
+  width: 100%; /* Ensures full width */
+  transform: translateY(0); /* Default for small devices */
+
+  @media (min-width: 1024px) {
+    position: static; /* Resets position for larger screens */
+    transform: none; /* Resets transform for larger screens */
+    margin-left: 3.5rem; /* Custom margin for larger screens */
+    max-width: 40rem; /* Custom max-width for larger screens */
+  }
+}
+
+#home .glassmorphism-no-rounded p {
+  font-size: 1.5rem; /* Default font-size */
+  font-weight: 600; /* Default font-weight */
+
+  @media (min-width: 640px) {
+    font-size: 2rem; /* Font-size for small screens */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem; /* Font-size for medium screens */
+  }
+}
+
+#home .glassmorphism-no-rounded div {
+  margin: 0 auto;
+  width: 80%;
+  text-align: left;
+  font-size: 0.875rem; /* Default font-size */
+  font-weight: 600;
+  color: black;
+
+  @media (min-width: 640px) {
+    font-size: 1rem; /* Font-size for small screens */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem; /* Font-size for medium screens */
+  }
 }

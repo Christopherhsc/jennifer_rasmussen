@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { MatExpansionPanel } from '@angular/material/expansion';
 
@@ -53,14 +61,16 @@ export class ServicesComponent implements OnInit, OnDestroy {
   }
 
   nextReview(isManual = false) {
-    this.currentReviewIndex = (this.currentReviewIndex + 1) % this.reviews.length;
+    this.currentReviewIndex =
+      (this.currentReviewIndex + 1) % this.reviews.length;
     if (isManual) {
       this.resetAutoSlide();
     }
   }
 
   prevReview(isManual = false) {
-    this.currentReviewIndex = (this.currentReviewIndex - 1 + this.reviews.length) % this.reviews.length;
+    this.currentReviewIndex =
+      (this.currentReviewIndex - 1 + this.reviews.length) % this.reviews.length;
     if (isManual) {
       this.resetAutoSlide();
     }
@@ -74,7 +84,7 @@ export class ServicesComponent implements OnInit, OnDestroy {
   startAutoSlide() {
     this.slideInterval = setInterval(() => {
       this.nextReview();
-    }, 12000); // Change slide every 4 seconds
+    }, 12000); // Change slide every 12 seconds
   }
 
   resetAutoSlide() {
@@ -99,11 +109,22 @@ export class ServicesComponent implements OnInit, OnDestroy {
   }
 
   checkIfAnyPanelExpanded() {
-    this.isPanelExpanded = this.panels.some(panel => panel.expanded);
+    this.isPanelExpanded = this.panels.some((panel) => panel.expanded);
   }
 
   closeAllPanels() {
-    this.panels.forEach(panel => panel.close());
+    this.panels.forEach((panel) => panel.close());
     this.isPanelExpanded = false;
+  }
+
+  onSwipe(event: any): void {
+    console.log('Swipe event detected:', event);
+    if (event.direction === 2) {
+      // swipe left
+      this.nextReview(true);
+    } else if (event.direction === 4) {
+      // swipe right
+      this.prevReview(true);
+    }
   }
 }

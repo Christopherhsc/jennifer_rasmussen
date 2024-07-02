@@ -13,7 +13,7 @@
 
   <!-- MAT ACCORDIONS -->
   <div
-    class="flex w-full flex-col items-center justify-center sm:w-8/12 md:h-2/3 md:w-3/4 lg:w-2/4 xl:w-2/5"
+    class="flex w-full flex-col items-center justify-center sm:w-8/12 md:h-1/3 md:w-3/4 lg:w-2/4 xl:w-2/5"
   >
     <mat-accordion>
       <mat-expansion-panel
@@ -24,27 +24,20 @@
           <mat-panel-title> Personlig træning </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="pt-3 text-xs sm:text-lg">
-          En personlig træner er det rigtige valg for dig, hvis du ønsker at
-          udfordre dig selv, blive klogere på din egen krop samt opnå
-          resultater, du måske ikke har kunne opnå før. Jeg mener, at god kemi
-          og et stærkt samarbejde er essentielt, når det omhandler personlig
-          træning. På baggrund af det, vil jeg altid tage en uformel og
-          uforpligtende samtale, hvor vi sammen snakker om dine forventninger og
-          udarbejder dine målsætninger. Et forløb hos mig bliver skræddersyet
-          til dine hverdagsmønstre – et forløb skal tilpasses dig, så det er
-          realistisk og motiverende. Jeg arbejder med personlig træning i
-          København, med fokus på styrketræning. Jeg mener nemlig, at
-          styrketræning er et eminent værktøj til et godt vægttab og en sund
-          krop. Jeg vil med min ekspertise indenfor anatomi, fysiologi og
-          styrketræning, præsentere dig for en masse forskellige øvelser samt
-          give dig nogle gode redskaber, så du selv har viden samt mulighed for,
-          at fortsætte din træning og selv sammensætte dem, når du engang er på
-          egen hånd. Personlig træning hos mig indebærer, at vi mødes nogle
-          gange ugentligt eller månedligt alt efter hvilket forløb du vælger.
-          Jeg vil give dig kostvejledning og træningsprogrammering, konkrete
-          redskaber til selvhjælp. Derudover vil jeg give dig ubegrænset
-          telefonisk support samt ugentlige check-ins omhandlende din vægt, mål,
-          livsstil mm.
+          En personlig træner er det rigtige valg, hvis du vil udfordre dig
+          selv, lære din krop bedre at kende og opnå resultater, du måske ikke
+          har opnået før. God kemi og et stærkt samarbejde er essentielt i
+          personlig træning, derfor starter vi med en uformel samtale om dine
+          forventninger og mål. Forløbet tilpasses dine hverdagsmønstre, så det
+          er realistisk og motiverende. Jeg arbejder med personlig træning i
+          København med fokus på styrketræning, som er effektivt til vægttab og
+          en sund krop. Med min viden indenfor anatomi, fysiologi og
+          styrketræning, vil jeg introducere dig til forskellige øvelser og give
+          dig redskaber, så du selv kan fortsætte din træning. Vi mødes
+          ugentligt eller månedligt, afhængigt af forløbet du vælger. Jeg
+          tilbyder kostvejledning, træningsprogrammering, konkrete redskaber til
+          selvhjælp, ubegrænset telefonisk support og ugentlige check-ins om
+          vægt, mål og livsstil.
           <br />
           Alle PT-forløb indeholder:
 
@@ -52,14 +45,14 @@
             <li>En indledende og uforpligtende samtale</li>
             <li>
               Personlig træning 1,2 eller 3x gange ugentligt (også mulighed for
-              at holde det på hver 2. uge)
+              at holde det på hver 2. uge) med mulighed for kostvejledning og
+              træningsprogrammer samt træningsvejledning
             </li>
-            <li>Kostvejledning</li>
-            <li>Træningsprogrammer samt træningsvejledning</li>
+
             <li>Support via besked/mail/telefon</li>
           </ul>
           <button
-            class="nav-button glassmorphism text-text-xs mt-4 p-2"
+            class="contact-button glassmorphism text-text-xs mt-2 p-2 md:mt-4"
             (click)="scrollTo('contact')"
           >
             Kontakt mig for mere information
@@ -94,8 +87,9 @@
           kommunikation, så du kan få det bedste ud af dit forløb. Endvidere er
           online personlig træning den billigste service jeg tilbyder, så tøv
           ikke med at udfylde kontakt formularen og kom i kontakt med mig.
+          <br />
           <button
-            class="nav-button glassmorphism text-text-xs mt-4 p-2"
+            class="contact-button glassmorphism text-text-xs mt-2 p-2 md:mt-4"
             (click)="scrollTo('contact')"
           >
             Kontakt mig for mere information
@@ -130,7 +124,7 @@
             selv fortsætte med.
           </p>
           <button
-            class="nav-button glassmorphism text-text-xs mt-4 p-2"
+            class="contact-button glassmorphism text-text-xs mt-2 p-2 md:mt-4"
             (click)="scrollTo('contact')"
           >
             Kontakt mig for mere information
@@ -142,15 +136,16 @@
     <button
       *ngIf="isPanelExpanded"
       (click)="closeAllPanels()"
-      class="nav-button glassmorphism mt-4 px-4 py-2 text-white"
+      class="contact-button glassmorphism mt-2 px-4 py-2 text-white md:mt-4"
     >
       Se Anmeldelser
     </button>
   </div>
 
   <div
-    class="glassmorphism relative my-12 flex w-10/12 flex-col items-center overflow-hidden text-white"
+    class="glassmorphism relative mt-4 flex w-full flex-col items-center overflow-hidden text-white sm:w-2/3 md:w-3/4 lg:w-2/4 xl:w-2/5"
     [ngClass]="{ hidden: isPanelExpanded, 'sm:block': !isPanelExpanded }"
+    (swipe)="onSwipe($event)"
   >
     <div
       class="slider-content flex transition-transform duration-1000 ease-in-out"
@@ -160,7 +155,7 @@
     >
       <div class="slide w-fit flex-none" *ngFor="let review of reviews">
         <h3 class="text-white">{{ review.name }}</h3>
-        <p class="mt-2 w-full px-12 pb-6">{{ review.text }}</p>
+        <p class="mt-2 w-full px-4 pb-6 md:px-12">{{ review.text }}</p>
       </div>
     </div>
     <button

@@ -18,6 +18,7 @@
   padding: 10px 0;
   border-bottom: 2px solid #dedede;
   transition: all 0.3s; /* Smooth transition on focus */
+  cursor: pointer;
 }
 
 .input-wrapper label {
@@ -50,7 +51,6 @@
   scale: 1 1;
 }
 
-
 .tooltip::before {
   position: absolute;
   content: "";
@@ -69,8 +69,8 @@
 
 .tooltip {
   position: absolute;
-  top: -70px; 
-  left: 50%; 
+  top: -70px;
+  left: 50%;
   transform: translateX(-50%);
   background: #1877f2;
   color: #ffffff;
@@ -83,8 +83,22 @@
 }
 
 .button-wrapper:hover .tooltip {
-  top: -35px; 
+  top: -35px;
   white-space: nowrap;
   opacity: 1;
   pointer-events: auto;
+}
+
+.glassmorphism-for-contact {
+  background: rgba(255, 255, 255, 0.05); /* Adjusted for more transparency */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.786);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Adjusted for more transparency */
+  text-shadow: rgba(0, 0, 0, 0.161) 1px 0 10px;
+}
+
+textarea {
+  transition: height 0.3s ease;
 }
