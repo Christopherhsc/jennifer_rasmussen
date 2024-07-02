@@ -1,28 +1,43 @@
-<nav class="navbar glassmorphism-navbar h-14">
-  <div class="center-button">
+<nav
+  class="glassmorphism-empowered-lightning fixed z-10 flex h-14 w-full items-center justify-between p-4 text-white"
+>
+  <div>
     <a
       (click)="scrollTo('home')"
-      class="hover:cursor-pointer text-2xl hover:bg-gray-950 hover:bg-opacity-20 p-2 rounded-md transition-colors duration-300"
+      class="rounded-md p-2 text-2xl transition-colors duration-300 hover:cursor-pointer hover:bg-gray-950 hover:bg-opacity-20"
     >
       Jennifer Rasmussen
     </a>
   </div>
-  <div class="left-buttons" *ngIf="!isSmallScreen">
+  <div class="left-buttons hidden lg:flex">
     <a (click)="scrollTo('about')" class="nav-button">Om mig</a>
     <a (click)="scrollTo('services')" class="nav-button">Ydelser</a>
     <a (click)="scrollTo('contact')" class="nav-button">Kontakt mig</a>
+    <a class="nav-button ml-20" (click)="openLoginModal()">Log ind</a>
+  </div>
+  <div class="lg:hidden">
+    <button
+      class="p-2 text-2xl text-white lg:hidden"
+      (click)="toggleDropdown()"
+    >
+      Menu
+    </button>
   </div>
   <div
-    class="dropdown-menu"
-    *ngIf="isSmallScreen"
-    [ngClass]="{ open: isDropdownOpen }"
+    class="fixed inset-0 flex h-screen flex-col border-b border-white border-opacity-50 bg-black bg-opacity-80 pt-5 text-white shadow-lg backdrop-blur-sm"
+    [ngClass]="{ hidden: !isDropdownOpen }"
   >
-    <button class="dropbtn" (click)="toggleDropdown()">Menu</button>
-    <div class="dropdown-content">
-      <a (click)="scrollTo('home')" class="">Hjem</a>
-      <a (click)="scrollTo('om')" class="">Om mig</a>
-      <a (click)="scrollTo('services')" class="">Ydelser</a>
-      <a (click)="scrollTo('contact')" class="">Kontakt mig</a>
+    <div class="mx-8 flex flex-col space-y-16 text-xl">
+      <a
+        class="m-auto mb-32 mt-8 flex w-1/2 justify-center py-2"
+        (click)="openLoginModal()"
+      >
+        Log ind
+      </a>
+      <a (click)="scrollTo('home')">Hjem</a>
+      <a (click)="scrollTo('about')">Om mig</a>
+      <a (click)="scrollTo('services')">Ydelser</a>
+      <a (click)="scrollTo('contact')">Kontakt mig</a>
     </div>
   </div>
 </nav>

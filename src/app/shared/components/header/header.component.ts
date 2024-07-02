@@ -2,6 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,14 +17,9 @@ export class HeaderComponent {
   @ViewChild('services') servicesElement: ElementRef;
   @ViewChild('contact') contactElement: ElementRef;
 
-  scrollTo(sectionId: string = '') {
-    this.viewportScroller.scrollToAnchor(sectionId);
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
-
   constructor(
     private dialog: MatDialog,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
   ) {
     this.isSmallScreen = window.innerWidth <= 1050;
     window.addEventListener('resize', () => {
@@ -31,13 +27,24 @@ export class HeaderComponent {
     });
   }
 
+  scrollTo(sectionId: string = '') {
+    this.viewportScroller.scrollToAnchor(sectionId);
+    if (this.isSmallScreen) {
+      this.isDropdownOpen = !this.isDropdownOpen;
+    }
+  }
+
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  openLoginModal(): void {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '500px',
+  openLoginModal() {
+    this.dialog.open(LoginComponent, {
+      width: '400px',
+      panelClass: 'glassmorphism-empowered-lightning',
     });
+    if (this.isDropdownOpen) {
+      this.isDropdownOpen = !this.isDropdownOpen;
+    }
   }
 }

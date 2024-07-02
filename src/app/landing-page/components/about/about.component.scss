@@ -33,16 +33,6 @@ label span.w-4.h-4.bg-white {
   background-color: white;
 }
 
-.container {
-  width: 90%;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1.25rem;
-  transition: all 400ms;
-}
-
 .card {
   flex: 1;
   height: 100%;

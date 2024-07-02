@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  HAMMER_GESTURE_CONFIG,
-} from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './landing-page/components/home/home.component';
@@ -14,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { LoginComponent } from './auth/components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +21,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     AboutComponent,
     ServicesComponent,
     ContactComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatIconModule,
     MatExpansionModule,
     BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
