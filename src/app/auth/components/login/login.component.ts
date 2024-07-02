@@ -40,10 +40,7 @@ export class LoginComponent implements OnInit {
       // Verify if the sessionStorage item is set correctly
       const storedUser = sessionStorage.getItem('authenticatedUser');
       if (storedUser) {
-        console.log('User authenticated:', storedUser);
         this.dialogRef.close(); // Close the modal
-      } else {
-        console.error('Failed to set sessionStorage item');
       }
     }
   }

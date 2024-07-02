@@ -90,7 +90,7 @@ html {
 }
 
 .icon-button {
-  @apply flex h-10 w-10 transform cursor-pointer items-center justify-center rounded-full bg-white text-2xl shadow-lg transition-all duration-200 ease-in-out hover:scale-105;
+  @apply flex h-10 w-10 transform cursor-pointer items-center justify-center rounded-full bg-white text-2xl shadow-lg transition-all duration-200 ease-in-out hover:scale-105 mb-2;
 }
 
 .tooltip {
