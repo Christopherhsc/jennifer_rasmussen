@@ -1,5 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../../../shared/services/auth.service';
+import { CustomToasterService } from 'src/app/shared/services/custom-toaster.service';
 
 declare const google: any;
 
@@ -9,17 +11,19 @@ declare const google: any;
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<LoginComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private authService: AuthService,
+    private customToaster: CustomToasterService,
+  ) {}
 
   ngOnInit(): void {
-    // Initialize the Google Sign-In client
     google.accounts.id.initialize({
       client_id:
         '709089986597-9puf3gthtul1s4l8sh26utbfi0oqrart.apps.googleusercontent.com',
-      callback: (resp: any) => this.handleAuth(resp),
+      callback: (resp: any) => this.handleGoogleLogin(resp),
     });
 
-    // Render the Google Sign-In button
     google.accounts.id.renderButton(document.getElementById('google-btn'), {
       theme: 'filled_blue',
       size: 'large',
@@ -32,16 +36,29 @@ export class LoginComponent implements OnInit {
     return JSON.parse(atob(token.split('.')[1]));
   }
 
-  handleAuth(response: any) {
+  handleGoogleLogin(response: any) {
+    const registrationType = 'GOOGLE';
     if (response) {
-      const payLoad = this.decodeToken(response.credential);
-      sessionStorage.setItem('authenticatedUser', JSON.stringify(payLoad));
-
-      // Verify if the sessionStorage item is set correctly
-      const storedUser = sessionStorage.getItem('authenticatedUser');
-      if (storedUser) {
-        this.dialogRef.close(); // Close the modal
-      }
+      const payload = this.decodeToken(response.credential);
+      this.authService
+        .createUser({
+          ...payload,
+          registrationMethod: registrationType,
+        })
+        .subscribe({
+          next: (res) => {
+            console.log('User created/updated successfully:', res);
+            this.customToaster.success(
+              `Greetings ${payload.name}!`,
+              'Authentication successful',
+            );
+            this.dialogRef.close();
+          },
+          error: (err) => {
+            console.error('Error creating user:', err);
+            this.customToaster.error('Failed to authenticate', 'Error');
+          },
+        });
     }
   }
 }

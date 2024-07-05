@@ -9,11 +9,27 @@
       Jennifer Rasmussen
     </a>
   </div>
-  <div class="left-buttons hidden lg:flex">
+  <div class="left-buttons hidden items-center lg:flex">
     <a (click)="scrollTo('about')" class="nav-button">Om mig</a>
     <a (click)="scrollTo('services')" class="nav-button">Ydelser</a>
     <a (click)="scrollTo('contact')" class="nav-button">Kontakt mig</a>
-    <a class="nav-button ml-20" (click)="openLoginModal()">Log ind</a>
+    <ng-container *ngIf="user; else loginButton">
+      <button class="nav-button-for-profile ml-20 flex flex-row items-center">
+        <img
+          *ngIf="user.imageUrl"
+          [src]="user.imageUrl"
+          alt="User Image"
+          width="40"
+          height="40"
+          class="mr-2 rounded-full border border-gray-700"
+        />
+        <p>{{ user.username }}</p>
+        <i class="fas fa-chevron-down ml-2"></i>
+      </button>
+    </ng-container>
+    <ng-template #loginButton>
+      <a class="nav-button ml-20" (click)="openLoginModal()">Log ind</a>
+    </ng-template>
   </div>
   <div class="lg:hidden">
     <button
@@ -28,12 +44,27 @@
     [ngClass]="{ hidden: !isDropdownOpen }"
   >
     <div class="mx-8 flex flex-col space-y-16 text-xl">
-      <a
-        class="m-auto mb-32 mt-8 flex w-1/2 justify-center py-2"
-        (click)="openLoginModal()"
-      >
-        Log ind
-      </a>
+      <ng-container *ngIf="user; else loginButtonMobile">
+        <div class="flew-row flex items-center justify-center">
+          <img
+            [src]="user.imageUrl"
+            alt="User Image"
+            width="50"
+            height="50"
+            class="mr-5 rounded-full border border-gray-700"
+          />
+          <span>{{ user.username }}</span>
+        </div>
+        <a class="nav-button ml-20" (click)="logout()">Log ud</a>
+      </ng-container>
+      <ng-template #loginButtonMobile>
+        <a
+          class="m-auto mb-32 mt-8 flex w-1/2 justify-center py-2"
+          (click)="openLoginModal()"
+        >
+          Log ind
+        </a>
+      </ng-template>
       <a (click)="scrollTo('home')">Hjem</a>
       <a (click)="scrollTo('about')">Om mig</a>
       <a (click)="scrollTo('services')">Ydelser</a>
