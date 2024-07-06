@@ -1,3 +1,4 @@
+//app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LoginComponent } from './auth/components/login/login.component';
-import { ToastrModule } from 'ngx-toastr';
+import { ProfileComponent } from './consumers/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
     ServicesComponent,
     ContactComponent,
     LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

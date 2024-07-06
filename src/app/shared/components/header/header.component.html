@@ -14,7 +14,10 @@
     <a (click)="scrollTo('services')" class="nav-button">Ydelser</a>
     <a (click)="scrollTo('contact')" class="nav-button">Kontakt mig</a>
     <ng-container *ngIf="user; else loginButton">
-      <button class="nav-button-for-profile ml-20 flex flex-row items-center">
+      <button
+        (click)="openProfileSettingsModal()"
+        class="nav-button-for-profile  flex flex-row items-center"
+      >
         <img
           *ngIf="user.imageUrl"
           [src]="user.imageUrl"

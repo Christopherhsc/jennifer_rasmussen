@@ -1,8 +1,10 @@
-import { ViewportScroller } from '@angular/common';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from 'src/app/auth/components/login/login.component';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ViewportScroller } from '@angular/common';
+import { LoginComponent } from 'src/app/auth/components/login/login.component';
+import { ProfileComponent } from 'src/app/consumers/profile/profile.component';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit {
     private dialog: MatDialog,
     private viewportScroller: ViewportScroller,
     private authService: AuthService,
+    private router: Router,
   ) {
     this.isSmallScreen = window.innerWidth <= 1050;
     window.addEventListener('resize', () => {
@@ -33,9 +36,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe((user) => {
       this.user = user;
-      if (this.user) {
-        console.log('User Image URL:', this.user.imageUrl);
-      }
     });
   }
 
@@ -58,6 +58,17 @@ export class HeaderComponent implements OnInit {
     if (this.isDropdownOpen) {
       this.isDropdownOpen = !this.isDropdownOpen;
     }
+  }
+
+  openProfileSettingsModal() {
+    const dialogRef = this.dialog.open(ProfileComponent, {
+      width: '250px',
+      data: { name: 'Your Data Here' },
+    });
+    this.router.navigate([{ outlets: { profile: 'profile' } }]);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
   }
 
   logout() {
