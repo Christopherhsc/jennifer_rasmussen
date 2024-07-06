@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PhoneSpaceDirective } from './directives/phone-space.directive';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 //MAT MODULES
 import { MatDialogModule } from '@angular/material/dialog';
@@ -20,12 +21,9 @@ import { HeaderComponent } from './components/header/header.component';
     MatIconModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    RouterModule,
     ToastrModule.forRoot(),
   ],
-  exports: [
-    HeaderComponent,
-    PhoneSpaceDirective,
-    HttpClientModule,
-  ],
+  exports: [HeaderComponent, PhoneSpaceDirective, HttpClientModule],
 })
 export class SharedModule {}

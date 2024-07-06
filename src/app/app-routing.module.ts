@@ -13,12 +13,12 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
-        outlet: 'modal',
+        outlet: 'modal', // This needs to match the outlet name used in your routerLink
       },
       {
         path: 'profile',
         component: ProfileComponent,
-        outlet: 'modal',
+        outlet: 'modal', // Ensure this matches the outlet name used
       },
     ],
   },

@@ -1,1 +1,60 @@
-<p>profile works!</p>
+<div
+  class="absolute inset-x-0 top-0 z-50 flex h-screen items-start bg-black bg-opacity-50"
+  (click)="closeModal()"
+>
+  <!-- Modal Content -->
+  <div
+    class="relative left-0 h-full w-full transform overflow-y-auto rounded-r-md bg-slate-200 p-8 transition-all duration-300 ease-in-out md:w-2/4 lg:w-1/3 xl:w-1/4"
+    [@slideIn]="isOpen ? 'open' : 'closed'"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Close Button -->
+    <button
+      (click)="closeModal()"
+      class="absolute right-2 top-0 text-3xl text-black hover:text-gray-400"
+    >
+      <mat-icon class="hidden text-2xl sm:inline-block" *ngIf="!isSmallScreen"
+        >navigate_before</mat-icon
+      >
+      <span *ngIf="isSmallScreen">&times;</span>
+    </button>
+
+    <!-- Profile Settings Form -->
+    <form
+      (ngSubmit)="onSubmit()"
+      class="flex flex-col items-center justify-center"
+    >
+      <div class="w-full">
+        <div class="my-2 flex-1">
+          <label class="mb-2 p-1 text-black" for="username">Username</label>
+          <input
+            class="focus:shadow-outline w-full appearance-none rounded border bg-opacity-100 px-2 py-1 leading-tight text-black"
+            id="username"
+            type="text"
+            [(ngModel)]="profileData.username"
+            name="username"
+            required
+          />
+        </div>
+        <div class="my-2 flex-1">
+          <label class="mb-2 p-1 text-black" for="email">Email</label>
+          <input
+            class="focus:shadow-outline w-full appearance-none rounded border bg-opacity-100 px-2 py-1 leading-tight text-black"
+            id="email"
+            type="email"
+            [(ngModel)]="profileData.email"
+            name="email"
+            required
+          />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full rounded bg-blue-500 p-2 text-white transition hover:bg-blue-600"
+      >
+        Save Changes
+      </button>
+    </form>
+  </div>
+</div>

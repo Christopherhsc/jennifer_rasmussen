@@ -1,8 +1,8 @@
-//app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';  // Import FormsModule
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './landing-page/components/home/home.component';
@@ -34,6 +34,7 @@ import { ProfileComponent } from './consumers/profile/profile.component';
     MatExpansionModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    FormsModule,  
   ],
   providers: [],
   bootstrap: [AppComponent],

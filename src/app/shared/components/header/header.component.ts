@@ -62,10 +62,10 @@ export class HeaderComponent implements OnInit {
 
   openProfileSettingsModal() {
     const dialogRef = this.dialog.open(ProfileComponent, {
-      width: '250px',
+      width: '600px',
       data: { name: 'Your Data Here' },
     });
-    this.router.navigate([{ outlets: { profile: 'profile' } }]);
+    this.router.navigate([{ outlets: { modal: 'profile' } }]);
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
