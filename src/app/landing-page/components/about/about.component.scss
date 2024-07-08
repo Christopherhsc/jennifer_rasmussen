@@ -1,54 +1,94 @@
-.second-container {
-  max-height: 70vh;
-  position: relative; /* Ensure buttons and indicators are positioned correctly */
+#about {
+  overflow: hidden;
+  position: relative;
+
+  /* Use the CSS variable for the background image */
+  background: var(--background-image) no-repeat center center;
+
+  /* Additional styles to apply to the background image */
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it is behind other content */
+    background-image: url("/assets/BACKGROUND.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
-.slider-content {
+.carousel {
+  perspective: 1200px;
+  width: 100%;
+  height: 100%;
+  position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slide {
-  flex: 0 0 100%;
+.carousel-item {
+  transition:
+    transform 0.5s ease,
+    width 0.5s ease,
+    height 0.5s ease;
+  transform-style: preserve-3d;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slide img {
+.carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: 1px solid white;
 }
 
-input[type="radio"] {
-  display: none;
-}
-
-label span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: gray;
-}
-
-label span.w-4.h-4.bg-white {
-  background-color: white;
-}
-
-.card {
-  flex: 1;
+.background-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100%;
-  transition: all 400ms;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.336);
+  border-radius: 100%;
+  border: none;
   cursor: pointer;
-}
-.card > img {
-  display: block;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin-left: 27.5%;
+  margin-right: 27.5%;
+  z-index: 20;
+  padding: 2%;
+  border: 2px solid white;
 }
 
-.container:hover .card:not(:hover) {
-  filter: grayscale(100%);
+.left-arrow {
+  left: 20px;
 }
-.card:hover {
-  flex: 3;
+
+.right-arrow {
+  right: 20px;
 }

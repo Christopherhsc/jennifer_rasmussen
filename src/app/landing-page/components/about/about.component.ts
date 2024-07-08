@@ -1,69 +1,46 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { aboutData } from './about-data';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
 })
-export class AboutComponent implements OnInit, OnDestroy {
-  currentSlide = 0;
-  slides = [
-    '/assets/about1.jpeg',
-    '/assets/about2.jpeg',
-    '/assets/about3.jpeg',
-  ];
-  slideInterval: any;
-  autoSlideTimeout: any;
+export class AboutComponent implements OnInit {
+  data = aboutData;
+  currentMiddleIndex: number = 0;
 
-  constructor(private cdr: ChangeDetectorRef) {}
-
-  ngOnInit(): void {
-    this.startAutoSlide();
+  ngOnInit() {
+    this.updateBackground();
   }
 
-  ngOnDestroy(): void {
-    if (this.slideInterval) {
-      clearInterval(this.slideInterval);
-    }
-    if (this.autoSlideTimeout) {
-      clearTimeout(this.autoSlideTimeout);
-    }
+  getCarouselItemStyle(index: number) {
+    const angle = ((index - this.currentMiddleIndex + this.data.length) % this.data.length) * (360 / this.data.length);
+    const isCurrent = index === this.currentMiddleIndex;
+
+    return {
+      transform: `rotateY(${angle}deg) translateZ(290px)`,
+      opacity: isCurrent ? 1 : 0.5,
+      filter: isCurrent ? 'none' : 'grayscale(70%)',
+      width: isCurrent ? '220px' : '200px',
+      height: isCurrent ? '400px' : '600px',
+    };
   }
 
-  nextSlide(isManual = false) {
-    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-    this.cdr.detectChanges();
-    if (isManual) {
-      this.resetAutoSlide();
-    }
+  getBackgroundStyle() {
+    const middleImageUrl = this.data[this.currentMiddleIndex].imageUrl;
+    return {
+      'background-image': `url(${middleImageUrl})`,
+    };
   }
 
-  prevSlide(isManual = false) {
-    this.currentSlide =
-      (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-    this.cdr.detectChanges();
-    if (isManual) {
-      this.resetAutoSlide();
-    }
+  rotateCarousel(direction: number) {
+    this.currentMiddleIndex = (this.currentMiddleIndex + direction + this.data.length) % this.data.length;
+    this.updateBackground();
   }
 
-  goToSlide(index: number) {
-    this.currentSlide = index;
-    this.cdr.detectChanges();
-    this.resetAutoSlide();
-  }
-
-  startAutoSlide() {
-    this.slideInterval = setInterval(() => {
-      this.nextSlide();
-    }, 4000); // Change slide every 4 seconds
-  }
-
-  resetAutoSlide() {
-    clearInterval(this.slideInterval);
-    clearTimeout(this.autoSlideTimeout);
-    this.autoSlideTimeout = setTimeout(() => {
-      this.startAutoSlide();
-    }, 2000);
+  updateBackground() {
+    const middleImageUrl = this.data[this.currentMiddleIndex].imageUrl;
+    document.documentElement.style.setProperty('--background-image', `url(${middleImageUrl})`);
   }
 }

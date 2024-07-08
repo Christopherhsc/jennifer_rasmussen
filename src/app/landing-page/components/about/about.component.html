@@ -1,100 +1,44 @@
 <div
-  class="flex h-screen bg-gradient-to-l from-gray-400 to-gray-800"
   id="about"
+  class="relative flex h-screen flex-row items-center justify-center border-y-2"
 >
-  <!-- parent container-->
   <div
-    class="m-auto flex w-full flex-col items-center justify-center md:p-4 xl:flex-row"
+    class="background-cover absolute inset-0 bg-center bg-no-repeat "
+    [ngStyle]="getBackgroundStyle()"
+  ></div>
+  <div class="relative z-10 w-1/2">
+    <div class="glassmorphism flex flex-col justify-center text-center ">
+      <div class="text-white" *ngFor="let item of data; let i = index">
+        <ng-container *ngIf="i === currentMiddleIndex">
+          <p>{{ item.title }}</p>
+          <p>{{ item.description }}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div
+    class="relative z-10 flex w-1/2 items-center justify-center text-2xl text-white "
   >
-    <!-- first container -->
-    <div class="max-h-screen w-full p-2 text-white lg:w-11/12 xl:w-full flex justify-center">
-      <div class="xxs:mb-8 md:mb-2 md:w-11/12 xl:w-full">
-        <p
-          class="glassmorphism hidden p-2 text-left text-sm xs:flex sm:p-4 md:text-xl"
-        >
-          Jeg brænder for, at hjælpe mennesker til en
-          sundere hverdag. Jeg er uddannet Personlig Træner og Kostvejleder og
-          har mange års erfaring inde for feltet. Jeg er bosat i København og
-          jeg kører mine personlige træninger i Sporting Health Club på Borups
-          Allé. Jeg har en dybdegående forståelse for kroppens anatomi og
-          forstår derfor, at sundhed og træning er individuelt. Dermed lægges
-          der hos mig stor fokus på, at vi finder en løsning, som specifikt
-          passer til dig. Både kost og træning skal tilpasses dit liv, og ikke
-          omvendt. Derfor er det vigtigt, at du vælger den helt den rigtige
-          personlige træner for DIG. <br />
-
-          Som følge deraf vil der hos mig, altid foregå en uforpligtende
-          indledende samtale inden dit forløb. Mit fokus er dine mål,
-          udfordringer og forventninger til dit forløb. Det er essentielt for
-          mig, at jeg forstår hvem du er som person samt kender din hverdag og
-          personlige behov, så jeg på den måde kan sammensætte et forløb unikt
-          til dig.
-        </p>
-        <p
-          class="glassmorphism m-auto flex p-2 text-left text-sm xs:hidden sm:p-4 md:text-xl"
-        >
-          Jeg brænder for, at hjælpe mennesker til en
-          sundere hverdag. Jeg er uddannet Personlig Træner og Kostvejleder og
-          har mange års erfaring inde for feltet. Jeg er bosat i København og
-          jeg kører mine personlige træninger i Sporting Health Club på Borups
-          Allé. Jeg har en dybdegående forståelse for kroppens anatomi og
-          forstår derfor, at sundhed og træning er individuelt. Dermed lægges
-          der hos mig stor fokus på, at vi finder en løsning, som specifikt
-          passer til dig. Både kost og træning skal tilpasses dit liv, og ikke
-          omvendt.
-        </p>
-      </div>
-    </div>
-
-    <!-- second container -->
-    <div class="second-container relative flex w-11/12 md:w-3/5 xl:w-full justify-end">
+    <button
+      class="arrow left-arrow glassmorphism-empowered-lightning"
+      (click)="rotateCarousel(-1)"
+    >
+      &#8592;
+    </button>
+    <div class="carousel">
       <div
-        class="glassmorphism flex w-full  overflow-hidden sm:flex-col xl:w-full"
+        class="carousel-item glassmorphism-empowered-lightning"
+        *ngFor="let item of data; let i = index"
+        [ngStyle]="getCarouselItemStyle(i)"
       >
-        <div
-          class="slider-content flex transition-transform duration-1000 ease-in-out"
-          [ngStyle]="{ transform: 'translateX(-' + currentSlide * 100 + '%)' }"
-        >
-          <div class="slide w-full flex-none" *ngFor="let slide of slides">
-            <img [src]="slide" alt="Image" class="h-full w-full" />
-          </div>
-        </div>
-        <button
-          class="absolute left-0 top-1/2 -translate-y-1/2 transform bg-gray-800 bg-opacity-50 p-2 text-white"
-          (click)="prevSlide(true)"
-        >
-          &#10094;
-        </button>
-        <button
-          class="absolute right-0 top-1/2 -translate-y-1/2 transform bg-gray-800 bg-opacity-50 p-2 text-white"
-          (click)="nextSlide(true)"
-        >
-          &#10095;
-        </button>
-        <div
-          class="glassmorphism-rounded-none absolute bottom-0 left-0 right-0 flex justify-center gap-12"
-        >
-          <div *ngFor="let slide of slides; let i = index" class="mx-2">
-            <input
-              type="radio"
-              [id]="'radio-' + i"
-              name="slider"
-              [checked]="i === currentSlide"
-              (click)="goToSlide(i)"
-              class="hidden"
-            />
-            <label [for]="'radio-' + i" class="cursor-pointer">
-              <span
-                [class]="
-                  i === currentSlide
-                    ? 'h-4 w-4 rounded-full bg-white'
-                    : 'h-4 w-4 rounded-full bg-gray-400'
-                "
-              ></span>
-            </label>
-          </div>
-        </div>
+        <img [src]="item.imageUrl" [alt]="item.title" />
       </div>
     </div>
+    <button
+      class="arrow right-arrow glassmorphism-empowered-lightning"
+      (click)="rotateCarousel(1)"
+    >
+      &#8594;
+    </button>
   </div>
 </div>
